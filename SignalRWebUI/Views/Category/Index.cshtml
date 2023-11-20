@@ -1,0 +1,62 @@
+﻿@model List<SignalRWebUI.Dtos.CategoryDtos.ResultCategoryDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+@*<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>SignalR Admin Paneli</title>
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+	<link rel="stylesheet" href="~/Ready-Bootstrap-Dashboard-master/assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+	<link rel="stylesheet" href="~/Ready-Bootstrap-Dashboard-master/assets/css/ready.css">
+	<link rel="stylesheet" href="~/Ready-Bootstrap-Dashboard-master/assets/css/demo.css">
+</head>
+*@
+<div class="content">
+	<div class="container-fluid">
+		<h4 class="page-title">Kategori İşlemleri</h4>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card">
+					<div class="card-header">
+						<div class="card-title">Kategori Listesi</div>
+					</div>
+					<div class="card-body">
+						<div class="card-sub">
+							Kategori ile ilgili işlemleri aşağıdan gerçekleştirebilirsiniz.
+						</div>
+						<table class="table mt-3">
+							<thead>
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">Kategori Adı</th>
+									<th scope="col">Durumu</th>
+									<th scope="col">Sil</th>
+									<th scope="col">Güncelle</th>
+								</tr>
+							</thead>
+							<tbody>
+								@foreach (var item in Model)
+								{
+									@*count++;*@
+									<tr>
+										<th>@item.CategoryID</th>
+										<td>@item.CategoryName</td>
+										<td>@item.Status</td>
+										<td><a href="/Category/DeleteCategory/@item.CategoryID" class="btn btn-outline-danger">Sil</a></td>
+										<td><a href="/Category/UpdateCategory/@item.CategoryID" class="btn btn-outline-success">Güncelle</a></td>
+									</tr>
+								}
+							</tbody>
+						</table>
+						<a href="#" class="btn btn-outline-primary">Yeni Kategori Girişi</a>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+</div>
